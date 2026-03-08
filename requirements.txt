@@ -1,7 +1,7 @@
-mediapipe
+mediapipe==0.10.9
 opencv-python
 numpy
 pandas
 matplotlib
 tqdm
-ipykernel
+ipykernel==6.30.1
