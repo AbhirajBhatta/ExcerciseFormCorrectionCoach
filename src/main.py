@@ -10,7 +10,7 @@ from model import (
 
 
 def main():
-    DATA_DIR = "../data/push-up"
+    DATA_DIR = "data/push-up"
     SAVE_PATH = "features.csv"
 
     print("\n[STEP 1] Building dataset...\n")
