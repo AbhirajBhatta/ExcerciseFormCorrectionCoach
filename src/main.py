@@ -1,5 +1,5 @@
 import pandas as pd
-
+import joblib
 from dataset import build_dataset
 from model import (
     train_test_split_and_train,
@@ -14,7 +14,8 @@ def main():
     SAVE_PATH = "features.csv"
 
     print("\n[STEP 1] Building dataset...\n")
-    df = build_dataset(DATA_DIR, save_path=SAVE_PATH)
+    # df = build_dataset(DATA_DIR, save_path=SAVE_PATH)
+    df = pd.read_csv("features.csv")
 
     if df.empty:
         print("[ERROR] Dataset is empty. Exiting.")
@@ -40,7 +41,19 @@ def main():
     print("\n[STEP 3] Training model...\n")
 
     model, X_train, X_test, y_train, y_test = train_test_split_and_train(X, y)
+    # -----------------------------
+    # Save model
+    # -----------------------------
+    # print("\n[STEP 3.5] Saving model...\n")
 
+    # model_data = {
+    #     "model": model,
+    #     "features": list(X.columns)
+    # }
+
+    # joblib.dump(model_data, "pushup_model.pkl")
+
+    # print("[INFO] Model saved as pushup_model.pkl")
     # -----------------------------
     # Evaluate
     # -----------------------------
