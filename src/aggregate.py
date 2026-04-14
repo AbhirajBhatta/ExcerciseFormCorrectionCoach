@@ -12,7 +12,6 @@ def aggregate_features(features_df):
         "min_hip_angle": features_df["hip_angle"].min(),
         "avg_hip_angle": features_df["hip_angle"].mean(),
 
-        # Optional: dynamics
         "elbow_range": features_df["elbow_angle"].max() - features_df["elbow_angle"].min(),
         "depth_range": features_df["depth"].max() - features_df["depth"].min(),
     }
