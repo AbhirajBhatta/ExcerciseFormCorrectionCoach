@@ -20,7 +20,7 @@ def calculate_angle(a, b, c):
     return angle
 
 # Start video (0 = webcam or replace with video file)
-cap = cv2.VideoCapture(r'C:\Users\riddh_wqixihs\Desktop\ExcerciseFormCorrectionCoach\data\push-up\incorrect\9.mp4')
+cap = cv2.VideoCapture(r'C:\Users\riddh_wqixihs\Desktop\ExcerciseFormCorrectionCoach\data\push-up\push-up_5.mp4')
 
 # Window setup
 cv2.namedWindow('Exercise Form Demo', cv2.WINDOW_NORMAL)
@@ -31,7 +31,8 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
-            break
+            cap.set(cv2.CAP_PROP_POS_FRAMES, 0)  # restart video
+            continue
 
         # Convert to RGB
         image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)

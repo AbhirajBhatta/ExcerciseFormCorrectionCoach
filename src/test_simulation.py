@@ -1,5 +1,9 @@
 from simulation.pushup_simulator import PushupSimulator
 import random
+
+import matplotlib
+matplotlib.use('Agg')  # or 'Qt5Agg'
+
 import matplotlib.pyplot as plt
 
 env = PushupSimulator()
@@ -27,9 +31,18 @@ for step in range(50):
         print("\n✅ Reached good posture!")
         break
 
-# Plot error trend
 plt.plot(errors)
-plt.title("Error over Time")
-plt.xlabel("Steps")
-plt.ylabel("Posture Error")
-plt.show()
+plt.xlabel("Frame")
+plt.ylabel("Error")
+plt.title("Posture Error Over Time")
+
+plt.savefig("error_plot.png")
+plt.close()
+
+
+# Plot error trend
+#plt.plot(errors)
+#plt.title("Error over Time")
+#plt.xlabel("Steps")
+#plt.ylabel("Posture Error")
+#plt.show()
